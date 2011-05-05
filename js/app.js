@@ -28,14 +28,19 @@ App = {
 };
 
 joCache.set("pycalc", function() {
+	
+	var mins = new joInput("0");
+	var secs = new joInput("0");
+	var py = new joInput("0");
+	
 	var card = new joCard([
 		// new joTitle("pymuncher"),
 		new joGroup([
 			new joLabel("Race duration"),
 			new joFlexrow([
-				new joInput("0"),
+				mins,
 				new joLabel("m"),
-				new joInput("0"),
+				secs,
 				new joLabel("s")
 			])
 		]),
@@ -43,16 +48,25 @@ joCache.set("pycalc", function() {
 		new joGroup([
 			new joLabel("Boat PY"),
 			new joFlexrow([
-				new joInput("0")
+				py
 			])
 		]),
 		
 		new joButton("Calculate corrected time").selectEvent.subscribe(function() {
-			App.scn.alert("yo");
+			var s = (parseInt(mins.getData()) * 60) + parseInt(secs.getData());
+			// scale to UK PY scale
+			s = s * 1000;
+			// corrected time in seconds
+			var corrected_s = s/parseInt(py.getData());
+			// as minutes & seconds
+			var minutes = Math.floor(corrected_s / 60);
+			var seconds = Math.round(corrected_s - minutes * 60);
+			
+			App.scn.alert(minutes + " minutes " + seconds + " seconds");
 		})
 	])
 	
-	card.setTitle("py muncher");
+	card.setTitle("pymuncher");
 	
 	return card;
 });
