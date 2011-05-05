@@ -33,6 +33,10 @@ joCache.set("pycalc", function() {
 	var secs = new joInput("0");
 	var py = new joInput("0");
 	
+	mins.type = 'number';
+	mins.secs = 'number';
+	mins.py = 'number';
+	
 	var card = new joCard([
 		// new joTitle("pymuncher"),
 		new joGroup([
