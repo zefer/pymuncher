@@ -53,7 +53,10 @@ joCache.set("pycalc", function() {
 		new joGroup([
 			new joLabel("Boat PY"),
 			new joFlexrow([
-				py
+				py,
+				new joButton("Lookup").selectEvent.subscribe(function() {
+					App.scn.alert("lookup");
+				})
 			])
 		]),
 		
