@@ -44,9 +44,9 @@ joCache.set("pycalc", function() {
 			new joLabel("Race duration"),
 			new joFlexrow([
 				mins,
-				new joLabel("mins"),
+				new joLabel("m"),
 				secs,
-				new joLabel("secs")
+				new joLabel("s")
 			])
 		]),
 		
