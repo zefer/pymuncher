@@ -1,1 +1,5 @@
 jonavbar .title {text-align:center; font-weight:bold; color:#ccc;}
+
+joselectlist, joexpandocontent {
+  display: block;
+}
