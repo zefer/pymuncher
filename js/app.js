@@ -33,9 +33,10 @@ joCache.set("pycalc", function() {
 	var secs = new joInput("0");
 	var py = new joInput("0");
 	
-	mins.type = 'number';
-	mins.secs = 'number';
-	mins.py = 'number';
+	// use number input keyboards on mobile devices
+	mins.container.setAttribute('type','number');
+	secs.container.setAttribute('type','number');
+	py.container.setAttribute('type','number');
 	
 	var card = new joCard([
 		// new joTitle("pymuncher"),
