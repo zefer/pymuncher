@@ -29,9 +29,9 @@ App = {
 
 joCache.set("pycalc", function() {
 	
-	var mins = new joInput("0");
-	var secs = new joInput("0");
-	var py = new joInput("0");
+	var mins = new joInput("");
+	var secs = new joInput("");
+	var py = new joInput("");
 	
 	// use number input keyboards on mobile devices
 	mins.container.setAttribute('type','number');
@@ -44,9 +44,9 @@ joCache.set("pycalc", function() {
 			new joLabel("Race duration"),
 			new joFlexrow([
 				mins,
-				new joLabel("m"),
+				new joLabel("mins"),
 				secs,
-				new joLabel("s")
+				new joLabel("secs")
 			])
 		]),
 		
