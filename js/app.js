@@ -54,21 +54,32 @@ joCache.set("pycalc", function() {
 		new joGroup([
 			new joLabel("Boat PY"),
 			new joFlexrow([
-				py
-				,
+				py,
 				new joButton("Lookup").selectEvent.subscribe(function() {
-					// App.scn.showPopup(joCache.get("pylookpopup"));
 					App.stack.push(joCache.get("pylookup"));
 				})
 			])
 		]),
 		
 		new joButton("Calculate corrected time").selectEvent.subscribe(function() {
-			var s = (parseInt(mins.getData()) * 60) + parseInt(secs.getData());
+			// input as integers
+			var m_in = parseInt(mins.getData());
+			var s_in = parseInt(secs.getData());
+			var py_in = parseInt(py.getData());
+			
+			// validate input
+			if(isNaN(m_in) || isNaN(s_in) || isNaN(py_in))
+			{
+				App.scn.alert("You must enter a number in each field");
+				return;
+			}
+			
+			// input time in seconds
+			var s = m_in * 60 + s_in;
 			// scale to UK PY scale
 			s = s * 1000;
 			// corrected time in seconds
-			var corrected_s = s/parseInt(py.getData());
+			var corrected_s = s/py_in;
 			// as minutes & seconds
 			var minutes = Math.floor(corrected_s / 60);
 			var seconds = Math.round(corrected_s - minutes * 60);
