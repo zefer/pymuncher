@@ -3,3 +3,5 @@ jonavbar .title {text-align:center; font-weight:bold; color:#ccc;}
 joselectlist, joexpandocontent {
   display: block;
 }
+
+.time-label {font-size:0.9em; margin:11px 0 0 0; position:relative; left:-8px;}
